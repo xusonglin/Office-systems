@@ -1,0 +1,58 @@
+2012-12-20 19:12:00
+
+添加数据表moveyear
+母板页中添加代码
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        SqlDataReader dr = null;
+        string conn = System.Configuration.ConfigurationManager.ConnectionStrings["rsglConnectionString"].ToString();
+        SqlConnection sp = new SqlConnection(conn);
+        sp.Open();
+        string select = "select top 1 nd  from moveyear";
+        SqlCommand cmd = new SqlCommand(select, sp);
+        dr = cmd.ExecuteReader();
+        int niandu=0;
+        int cy=DateTime.Now.Year;
+        int i = 0; int j = 0;
+        while(dr.Read())
+        {
+            niandu=Convert.ToInt32(dr[0].ToString());
+            if (niandu < cy)
+            {
+                i = 1;
+            }
+        }
+        dr.Close();   
+        if (i == 1)
+        {
+            string insert = "insert into moveyear values('2012')";
+            SqlCommand cmd1 = new SqlCommand(insert, sp);
+            cmd1.ExecuteNonQuery();
+        }
+        sp.Close();
+(1)yhqk/khdc.aspx
+FormView中insert模板年度
+编辑模板中年度
+
+
+2012-12-21 9:33:00
+
+yhqk/xxgzjl.aspx中
+objectdatasource的insert方法填充了
+对起始时间、结束时间进行了约束：195000～210000
+
+jxqk/jxcghj
+FormView中insert模板年度
+编辑模板中年度——动态生成
+
+jxqk/jxry
+FormView中insert模板年度
+编辑模板中年度——动态生成
+
+insert模板中得分textbox注释掉
+
+
+edit模板中得分变为label标签，不可操作
+
+
+
