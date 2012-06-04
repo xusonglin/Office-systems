@@ -72,6 +72,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="网站说明-计算机等级网上报名.doc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="人事管理系统修改记录.txt" />
